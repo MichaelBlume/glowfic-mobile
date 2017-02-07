@@ -1,0 +1,24 @@
+This is going to be an Android/iOS Glowfic site client!
+
+Optimistically.
+
+I mean, realistically, it's not. I have a baby. I have a cold. I am hopefully
+going to start a demanding job in the next week or two. This is mostly an
+excuse for me to noodle around with react-native and see what it looks like
+when it's integrated with a database and network calls and whatever.
+
+Nonetheless, here are the ambitions of the Glowfic app.
+
+My first intended use case is *reading* because, duh, that's pretty much all I
+do with the Glowfic site. The goal is that you can just click 'save' on, say,
+Silmaril and then get on an airplane and read Silmaril on your tablet without
+buying overpriced inflight internet. Or have the latest updates to the seven
+threads you're currently reading sync to your phone while you're at work, and
+catch up on the subway whether you have reception or not. Eventually I'll try
+to make the app useful for posting as well. I'm thinking I'll go with endless
+scroll for threads with a menu that you can use to jump to a particular page,
+but I'm open to advice on that.
+
+I'm writing the app with React Native which *should* mean it works on Android
+and iOS. If you have XCode and an iOS device, you're welcome to try running it!
+It'll mostly be built and tested on Android though.
