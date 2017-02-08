@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import HTMLView from 'react-native-htmlview';
 
 export default class Glowfic extends Component {
 
@@ -40,6 +41,13 @@ export default class Glowfic extends Component {
           }
 
         </Text>
+        {(() => {
+          if (this.state.thread !== null) {
+            return <HTMLView
+              value={this.state.thread.data.content}
+            />;
+          }
+        })()}
       </View>
     );
   }
