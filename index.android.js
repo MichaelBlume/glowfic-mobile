@@ -13,18 +13,32 @@ import {
 } from 'react-native';
 
 export default class Glowfic extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {thread: null};
+  }
   render() {
+    console.log('rendering!');
+    if (this.state.thread === null) {
+      fetch('https://glowfic.com/api/v1/posts/190').
+        then(r => r.json()).
+        then(r => this.setState({thread: r})).
+        catch(e => console.warn(e));
+    }
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
+          {
+            (() => {
+              if (this.state.thread === null) {
+                return "no thread!";
+              } else {
+                return "found the thread! Got " + this.state.thread.data.replies.length + " tags!";
+              }
+            })()
+          }
+
         </Text>
       </View>
     );
