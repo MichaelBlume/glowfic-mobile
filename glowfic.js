@@ -3,14 +3,24 @@ import {
   StyleSheet,
   Text,
   ListView,
+  Image,
   View
 } from 'react-native';
 import HTMLView from 'react-native-htmlview';
 
 const tag = (rowData) => {
   console.log('rendering a tag');
-  return <HTMLView
-    value={rowData.content}/>;
+  return <View>
+    {
+      rowData.icon ?
+        <Image
+          style={styles.image}
+          source={{uri: rowData.icon.url}} /> :
+        console.log('no icon', rowData)
+    }
+    <HTMLView
+      value={rowData.content}/>
+  </View>;
 };
 
 const Thread = ({thread}) => {
@@ -61,6 +71,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  image: {
+    width: 100,
+    height: 100,
   },
   welcome: {
     fontSize: 20,
